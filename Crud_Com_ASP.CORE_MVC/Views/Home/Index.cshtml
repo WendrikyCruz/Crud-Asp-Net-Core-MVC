@@ -1,0 +1,57 @@
+﻿@model List<Crud_Com_ASP.CORE_MVC.Models.Cliente>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Lista de Clientes";
+}
+
+
+<div class="container-fluid p-5 ">
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col" scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefone</th>
+                <th scope="col"> <a href="/cadastrar/" class="btn btn-primary">Cadastrar</a></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var cliente in @Model)
+            {
+                <tr>
+                    <th scope="row">@cliente.id</th>
+                    <td scope="col">@cliente.nome</td>
+                    <td scope="col">@cliente.email</td>
+                    <td scope="col">@cliente.telefone</td>
+                    <td scope="col">
+                        <a href="/editar/editar/@cliente.id" class="btn">Editar</a>
+                        <a href="/home/excluir/@cliente.id" class="btn">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    @if (TempData["CadastroFeedback"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["CadastroFeedback"]
+        </div>
+    }
+    @if (TempData["MensagemExcluir"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["MensagemExcluir"]
+        </div>
+    }
+
+
+
+</div>
+

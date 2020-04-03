@@ -1,0 +1,73 @@
+﻿@model Crud_Com_ASP.CORE_MVC.Models.Cliente
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<div class="container-fluid pt-5">
+
+    <form method="post" action="cadastrar">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <div id="divNome" class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" value="@Model.nome" class="form-control" id="nome" placeholder="Seu nome aqui">
+                    @Html.ValidationMessage("nome")
+                </div>
+            </div>
+        </div>
+
+        <script>
+            pai = document.getElementById("divNome");
+
+            if (pai.querySelectorAll(".field-validation-error").length) {
+                document.getElementById("nome").className += " border-danger"
+            }
+        </script>
+
+        <div class="row justify-content-md-center">
+            <div class="col-6 ">
+                <div id="divEmail" class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" value="@Model.email" class="form-control" id="email" placeholder="Seu e-mail">
+                    @Html.ValidationMessage("email")
+                </div>
+            </div>
+        </div>
+        <script>
+            pai = document.getElementById("divEmail");
+
+            if (pai.querySelectorAll(".field-validation-error").length) {
+
+                document.getElementById("email").className += " border-danger"
+            }
+        </script>
+
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <div id="divTel" class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="number" name="telefone" values="@Model.telefone" class="form-control" id="telefone" placeholder="">
+                    @Html.ValidationMessage("telefone")
+                </div>
+            </div>
+        </div>
+        <script>
+            pai = document.getElementById("divTel");
+
+            if (pai.querySelectorAll(".field-validation-error").length) {
+
+                document.getElementById("telefone").className += " border-danger"
+            }
+        </script>
+
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
